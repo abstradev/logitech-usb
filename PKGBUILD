@@ -14,7 +14,20 @@ provides=('logitech-usb')
 conflicts=('logitech-usb')
 
 package() {
-  pwd
-  ls
+  # Install script
+  install -Dm755 'logitech-usb.sh' "$pkgdir/usr/local/sbin/logitech-usb.sh"
+
+  # Install Service
+  install -Dm644 'logitech-usb.service' "$pkgdir/usr/lib/systemd/system/logitech-usb.service"
+
+  echo
+  echo
+  echo -------------------------------------------------------------
+  echo Installed Abstra Logitech USB Power Control.
+  echo INFO: You must now enable the service with systemd!
+  echo Command: sudo systemctl enable logitech-usb.service
+  echo -------------------------------------------------------------
+  echo
+  echo
 }
 
