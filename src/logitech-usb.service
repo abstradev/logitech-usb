@@ -1,0 +1,9 @@
+[Unit]
+Description=Disable Auto Power Control for Logitech USB
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh /usr/local/sbin/logitechUsbPowerControl.sh
+
+[Install]
+WantedBy=multi-user.target
